@@ -1,0 +1,25 @@
+### Notes for Claude Code
+- The TV display and the iPad kiosk are two separate React components — TvDisplay and KioskDisplay — that both consume the same API but render differently. Do not build a single component with conditional rendering spread throughout.
+- All API calls go through api.js. The polling useEffect in both display components must return a cleanup function that calls clearInterval to prevent memory leaks.
+The 30-second polling interval is configured via REACT_APP_POLL_INTERVAL_MS in .env so it can be tuned per environment without a code change.
+- Category filter state and current page are held in the KioskDisplay component. They must survive a background re-fetch — only a user-initiated filter change resets the page to 0.
+- Empty state and error state are separate UI states. An empty result set (totalElements = 0) is not an error — show the empty message. A failed API call is an error — show the reconnecting message and retry.
+
+- The signup modal is a single component `SmsSignupModal` that manages its own internal state machine with four states: `FORM`, `LOADING`, `SUCCESS`, `ALREADY_SUBSCRIBED`, and `ERROR`. Use a `mode` state variable with these string values — do not use multiple boolean flags like `isLoading`, `isSuccess`, `hasError`.
+- Phone number formatting to E.164 happens inside `api.js` before the fetch call, not inside the component. The component passes the raw string the user typed; `api.js` normalizes it.
+- The auto-dismiss timer in the `SUCCESS` state is a `setTimeout` inside a `useEffect`. The effect must return a cleanup function calling `clearTimeout` to prevent the timer from firing after the modal unmounts.
+- The opt-out confirmation page is a separate route — e.g. `/unsubscribe` — and is a completely separate component from the kiosk UI. It does not share layout or styling with the kiosk display components.
+- The subscriber count increment on the event detail screen after a successful signup is a local state update — do not re-fetch the full event just to update one number.
+- `ALREADY_SUBSCRIBED` is not an error state — do not render error styling. It is its own modal mode with its own distinct UI.
+
+- The admin interface lives under a separate React route tree at `/admin`. It has its own layout component `AdminLayout` with navigation sidebar and header — it shares no layout components with the kiosk display.
+- The JWT is stored in a React context (`AuthContext`) that wraps the entire `/admin` route tree. It is never written to `localStorage` or `sessionStorage`. On page reload the admin must log in again — this is intentional for a shared-device environment.
+- All admin API calls go through a separate `adminApi.js` module (distinct from the public `api.js`) that automatically attaches the `Authorization: Bearer {token}` header from `AuthContext`. Components never attach the header themselves.
+- Route protection is handled by an `AdminRoute` wrapper component that checks `AuthContext` for a valid token and redirects to `/admin/login` if absent. Every route under `/admin` is wrapped with `AdminRoute`.
+- The visibility toggle in the event list uses optimistic UI — flip the local state immediately, fire the PATCH in the background, revert on failure. Do not wait for the API response before updating the toggle.
+- The cancel event flow and the broadcast flow both use a modal confirmation pattern. Build a single reusable `ConfirmationModal` component that accepts title, body, confirm label, and an `onConfirm` callback — do not build one-off modals for each action.
+- The event create and edit forms share the same `EventForm` component. The create screen passes no initial values; the edit screen passes the existing event object as `initialValues`. The component is unaware of whether it is creating or editing — the parent decides which API call to make on submit.
+- Warning banners (e.g. the reschedule warning in Story 4) are rendered inside the form above the submit button — not as a modal or toast. They appear and disappear based on whether the `startTime` field value differs from `initialValues.startTime`.
+
+- The opt-out confirmation page at `/unsubscribe` calls `POST /api/subscriptions/opt-out` automatically on mount inside a `useEffect` with an empty dependency array. It renders one of three states: `LOADING`, `SUCCESS`, or `ERROR`. There is no user input on this page — it is entirely driven by the `subscriptionId` and `phoneNumber` query parameters parsed from the URL.
+- The admin notification log view (`GET /api/admin/events/{id}/notification-log`) is a read-only table inside the event edit screen, below the subscriber list. It is loaded lazily — it does not fetch on page load, only when the admin expands a "View delivery log" disclosure section. This avoids loading potentially large log tables on every edit screen open.
