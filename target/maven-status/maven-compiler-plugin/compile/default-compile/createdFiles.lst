@@ -1,0 +1,3 @@
+com/yourorg/eventdashboard/EventDashboardApplication.class
+com/yourorg/eventdashboard/shared/BaseEntity.class
+com/yourorg/eventdashboard/shared/CacheNames.class
