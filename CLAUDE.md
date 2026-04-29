@@ -944,3 +944,9 @@ The broadcast endpoint returns `202 Accepted` and hands off to an `@Async` metho
 - After completing Story 8, add `SecurityConfig`, `JwtService`, and `JwtFilter` to the generated artifacts section.
 - The `@EnableAsync` annotation goes on the main `@SpringBootApplication` class, not on `NotificationService`. Add this note to the scaffold story when prompting Claude Code for Story 1.
 Run `./mvnw test` after each story is complete before starting the next. Do not accumulate failing tests across stories.
+
+- Implement non-functional stories after all feature stories are complete and all feature tests are passing. Do not interleave non-functional work with feature development — it creates merge conflicts and makes debugging harder.
+- Story 2 (security hardening) and Story 5 (logging) should be implemented together in the same Claude Code session — `PhoneNumberMaskingConverter` is referenced by both and should only be built once. Begin the session with both stories pasted in sequence.
+- Story 4 (environment configuration) must be implemented before any deployment attempt — the `EnvironmentValidator` fast-fail behavior will surface missing variables immediately rather than silently defaulting to null values that cause cryptic runtime errors.
+- The `CacheNames` constants class (Story 6), the `NotificationOffsets` constants class (already in `shared`), and any future constants follow the same pattern — a dedicated class in `shared` with `public static final String` fields. Never use string literals for cache names or offset values inline.
+- `@EnableCaching` and `@EnableAsync` both go on the main `@SpringBootApplication` class. After Story 6 is implemented, verify the main application class has both annotations and add a note to the generated artifacts section of `CLAUDE.md`.
