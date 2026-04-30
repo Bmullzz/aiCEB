@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.yourorg.eventdashboard.subscription.SubscriptionControllerTest
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.606 s -- in com.yourorg.eventdashboard.subscription.SubscriptionControllerTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s -- in com.yourorg.eventdashboard.subscription.SubscriptionControllerTest

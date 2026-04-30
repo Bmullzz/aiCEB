@@ -1,4 +1,9 @@
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/EventDashboardApplication.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/admin/AdminUser.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/admin/AdminUserDetailsService.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/admin/AdminUserRepository.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/admin/AuthController.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/admin/LoginRequestDto.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/admin/package-info.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/event/Event.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/event/EventCategory.java
@@ -20,8 +25,12 @@
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/EventNotFoundException.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/GlobalExceptionHandler.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/InvalidPhoneNumberException.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/JwtAuthenticationException.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/JwtFilter.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/JwtService.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/MockSmsService.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/NotificationOffsets.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/SecurityConfig.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/SmsDeliveryException.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/SmsService.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/SubscriptionNotFoundException.java

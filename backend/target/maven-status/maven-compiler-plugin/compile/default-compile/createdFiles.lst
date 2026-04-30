@@ -2,7 +2,10 @@ com/yourorg/eventdashboard/notification/DeliveryStatus.class
 com/yourorg/eventdashboard/shared/TwilioSmsService.class
 com/yourorg/eventdashboard/subscription/package-info.class
 com/yourorg/eventdashboard/notification/package-info.class
+com/yourorg/eventdashboard/shared/JwtFilter.class
 com/yourorg/eventdashboard/subscription/Subscription.class
+com/yourorg/eventdashboard/admin/AuthController.class
+com/yourorg/eventdashboard/shared/JwtService.class
 com/yourorg/eventdashboard/subscription/SubscriptionRepository.class
 com/yourorg/eventdashboard/shared/NotificationOffsets.class
 com/yourorg/eventdashboard/shared/SmsDeliveryException.class
@@ -12,6 +15,7 @@ com/yourorg/eventdashboard/shared/EventCancelledException.class
 com/yourorg/eventdashboard/shared/CacheNames.class
 com/yourorg/eventdashboard/subscription/PhoneNumberValidator.class
 com/yourorg/eventdashboard/subscription/OptOutRequestDto.class
+com/yourorg/eventdashboard/admin/AdminUserDetailsService.class
 com/yourorg/eventdashboard/shared/InvalidPhoneNumberException.class
 com/yourorg/eventdashboard/shared/SmsService.class
 com/yourorg/eventdashboard/shared/GlobalExceptionHandler.class
@@ -28,7 +32,10 @@ com/yourorg/eventdashboard/subscription/SubscriptionController.class
 com/yourorg/eventdashboard/subscription/SubscriptionResponseDto.class
 com/yourorg/eventdashboard/admin/package-info.class
 com/yourorg/eventdashboard/subscription/SubscriptionStatus.class
+com/yourorg/eventdashboard/admin/LoginRequestDto.class
 com/yourorg/eventdashboard/notification/NotificationLogRepository.class
+com/yourorg/eventdashboard/shared/JwtAuthenticationException.class
+com/yourorg/eventdashboard/shared/SecurityConfig.class
 com/yourorg/eventdashboard/subscription/SubscriptionRequestDto.class
 com/yourorg/eventdashboard/shared/package-info.class
 com/yourorg/eventdashboard/event/EventCategory.class
@@ -39,4 +46,6 @@ com/yourorg/eventdashboard/shared/BaseEntity.class
 com/yourorg/eventdashboard/webhook/package-info.class
 com/yourorg/eventdashboard/shared/GlobalExceptionHandler$ErrorResponse.class
 com/yourorg/eventdashboard/EventDashboardApplication.class
+com/yourorg/eventdashboard/admin/AdminUser.class
 com/yourorg/eventdashboard/notification/NotificationLog.class
+com/yourorg/eventdashboard/admin/AdminUserRepository.class

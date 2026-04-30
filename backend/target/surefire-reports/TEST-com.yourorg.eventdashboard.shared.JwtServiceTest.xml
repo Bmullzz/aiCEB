@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.yourorg.eventdashboard.shared.TwilioSmsServiceTest" time="0.008" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.yourorg.eventdashboard.shared.JwtServiceTest" time="0.007" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -48,7 +48,7 @@
     <property name="localRepository" value="/Users/bmullin/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
     <property name="java.io.tmpdir" value="/var/folders/hg/tkr8qy1n27zg1b3q8krdkc7r0000gp/T/"/>
-    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="com.zaxxer.hikari.pool_number" value="3"/>
     <property name="java.version" value="21.0.7"/>
     <property name="user.dir" value="/Users/bmullin/projects/aiProjects/aiCEB/backend"/>
     <property name="os.arch" value="aarch64"/>
@@ -65,19 +65,9 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="send_throwsSmsDeliveryExceptionNotRawExceptionWhenSdkFails" classname="com.yourorg.eventdashboard.shared.TwilioSmsServiceTest" time="0.005">
-    <system-out><![CDATA[2026-04-30T14:35:41.567-04:00  INFO 70350 --- [           main] c.y.e.shared.TwilioSmsService            : Sending SMS to subscription [masked] for message length 5
-2026-04-30T14:35:41.567-04:00  WARN 70350 --- [           main] c.y.e.shared.TwilioSmsService            : SMS delivery failed: Twilio network error
-]]></system-out>
-  </testcase>
-  <testcase name="send_returnsMessageSidOnSuccess" classname="com.yourorg.eventdashboard.shared.TwilioSmsServiceTest" time="0.001">
-    <system-out><![CDATA[2026-04-30T14:35:41.571-04:00  INFO 70350 --- [           main] c.y.e.shared.TwilioSmsService            : Sending SMS to subscription [masked] for message length 11
-2026-04-30T14:35:41.571-04:00  INFO 70350 --- [           main] c.y.e.shared.TwilioSmsService            : SMS sent, sid=SM_SUCCESS_SID_123
-]]></system-out>
-  </testcase>
-  <testcase name="send_preservesSmsDeliveryExceptionWithoutRewrapping" classname="com.yourorg.eventdashboard.shared.TwilioSmsServiceTest" time="0.001">
-    <system-out><![CDATA[2026-04-30T14:35:41.572-04:00  INFO 70350 --- [           main] c.y.e.shared.TwilioSmsService            : Sending SMS to subscription [masked] for message length 5
-2026-04-30T14:35:41.572-04:00  WARN 70350 --- [           main] c.y.e.shared.TwilioSmsService            : SMS delivery failed: Twilio create() returned null
-]]></system-out>
-  </testcase>
+  <testcase name="validateToken_returnsCorrectUsername" classname="com.yourorg.eventdashboard.shared.JwtServiceTest" time="0.001"/>
+  <testcase name="generateToken_returnsNonEmptyString" classname="com.yourorg.eventdashboard.shared.JwtServiceTest" time="0.0"/>
+  <testcase name="validateToken_throwsWithTokenExpiredMessage_forExpiredToken" classname="com.yourorg.eventdashboard.shared.JwtServiceTest" time="0.003"/>
+  <testcase name="validateToken_throwsForExpiredToken" classname="com.yourorg.eventdashboard.shared.JwtServiceTest" time="0.001"/>
+  <testcase name="validateToken_throwsForGarbageInput" classname="com.yourorg.eventdashboard.shared.JwtServiceTest" time="0.001"/>
 </testsuite>
