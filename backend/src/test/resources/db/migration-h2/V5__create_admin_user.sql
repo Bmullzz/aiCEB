@@ -9,9 +9,9 @@ CREATE TABLE admin_user (
 );
 
 -- adminPasswordHash MUST be a bcrypt-hashed value — never a plaintext password.
--- Set via application.properties:
---   spring.flyway.placeholders.adminUsername=${ADMIN_USERNAME}
---   spring.flyway.placeholders.adminPasswordHash=${ADMIN_PASSWORD_HASH}
+-- Configure in application.properties using env vars ADMIN_USERNAME and ADMIN_PASSWORD_HASH:
+--   spring.flyway.placeholders.adminUsername=<from env>
+--   spring.flyway.placeholders.adminPasswordHash=<bcrypt hash from env>
 -- Generate a bcrypt hash with: htpasswd -bnBC 10 "" yourpassword | tr -d ':\n'
 INSERT INTO admin_user (username, password_hash)
 VALUES ('${adminUsername}', '${adminPasswordHash}');

@@ -1,0 +1,16 @@
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/EventDashboardApplication.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/admin/package-info.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/event/package-info.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/notification/package-info.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/BaseEntity.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/CacheNames.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/GlobalExceptionHandler.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/MockSmsService.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/NotificationOffsets.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/SmsDeliveryException.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/SmsService.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/TwilioMessageSender.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/TwilioSmsService.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/package-info.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/subscription/package-info.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/webhook/package-info.java
