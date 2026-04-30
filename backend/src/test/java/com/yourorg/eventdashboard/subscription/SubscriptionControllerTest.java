@@ -156,4 +156,16 @@ class SubscriptionControllerTest {
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.code").value("ALREADY_OPTED_OUT"));
     }
+
+    @Test
+    void subscribe_returns400_withFieldNameInMessage_whenPhoneInvalidFormat() throws Exception {
+        // Phone number present but fails E.164 @Pattern — verifies message contains field name
+        mockMvc.perform(post("/api/subscriptions")
+                        .with(csrf())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"eventId\":\"" + EVENT_ID + "\",\"phoneNumber\":\"not-e164\"}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("INVALID_REQUEST"))
+                .andExpect(jsonPath("$.message").value(org.hamcrest.Matchers.containsString("phoneNumber")));
+    }
 }

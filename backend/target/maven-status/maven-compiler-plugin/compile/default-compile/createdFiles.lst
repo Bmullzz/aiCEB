@@ -1,5 +1,6 @@
 com/yourorg/eventdashboard/notification/DeliveryStatus.class
 com/yourorg/eventdashboard/shared/TwilioSmsService.class
+com/yourorg/eventdashboard/shared/CategoryNotFoundException.class
 com/yourorg/eventdashboard/subscription/package-info.class
 com/yourorg/eventdashboard/notification/package-info.class
 com/yourorg/eventdashboard/shared/JwtFilter.class
@@ -8,7 +9,9 @@ com/yourorg/eventdashboard/admin/AuthController.class
 com/yourorg/eventdashboard/shared/JwtService.class
 com/yourorg/eventdashboard/subscription/SubscriptionRepository.class
 com/yourorg/eventdashboard/shared/NotificationOffsets.class
+com/yourorg/eventdashboard/shared/RateLimitedException.class
 com/yourorg/eventdashboard/shared/SmsDeliveryException.class
+com/yourorg/eventdashboard/shared/MdcFilter.class
 com/yourorg/eventdashboard/event/EventRepository.class
 com/yourorg/eventdashboard/event/package-info.class
 com/yourorg/eventdashboard/shared/EventCancelledException.class
@@ -30,6 +33,7 @@ com/yourorg/eventdashboard/notification/NotificationService.class
 com/yourorg/eventdashboard/subscription/SubscriptionService.class
 com/yourorg/eventdashboard/subscription/SubscriptionController.class
 com/yourorg/eventdashboard/subscription/SubscriptionResponseDto.class
+com/yourorg/eventdashboard/shared/InvalidEventTimeException.class
 com/yourorg/eventdashboard/admin/package-info.class
 com/yourorg/eventdashboard/subscription/SubscriptionStatus.class
 com/yourorg/eventdashboard/admin/LoginRequestDto.class

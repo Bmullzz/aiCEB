@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -20,6 +19,8 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
     public record ErrorResponse(int status, String code, String message, String requestId) {}
+
+    // ─── JWT / Auth ───────────────────────────────────────────────────────────
 
     @ExceptionHandler(JwtAuthenticationException.class)
     public ResponseEntity<ErrorResponse> handleJwtAuthentication(JwtAuthenticationException ex) {
@@ -39,6 +40,8 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(403, "FORBIDDEN", "Access denied.", MDC.get("requestId")));
     }
 
+    // ─── Domain — Event ───────────────────────────────────────────────────────
+
     @ExceptionHandler(EventNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleEventNotFound(EventNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -56,6 +59,20 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
                 .body(new ErrorResponse(422, "EVENT_IN_PAST", ex.getMessage(), MDC.get("requestId")));
     }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleCategoryNotFound(CategoryNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new ErrorResponse(404, "CATEGORY_NOT_FOUND", ex.getMessage(), MDC.get("requestId")));
+    }
+
+    @ExceptionHandler(InvalidEventTimeException.class)
+    public ResponseEntity<ErrorResponse> handleInvalidEventTime(InvalidEventTimeException ex) {
+        return ResponseEntity.badRequest()
+                .body(new ErrorResponse(400, "INVALID_EVENT_TIME", ex.getMessage(), MDC.get("requestId")));
+    }
+
+    // ─── Domain — Subscription ────────────────────────────────────────────────
 
     @ExceptionHandler(SubscriptionNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleSubscriptionNotFound(SubscriptionNotFoundException ex) {
@@ -81,6 +98,31 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(400, "INVALID_PHONE_NUMBER", ex.getMessage(), MDC.get("requestId")));
     }
 
+    // ─── Domain — SMS ─────────────────────────────────────────────────────────
+
+    @ExceptionHandler(SmsDeliveryException.class)
+    public ResponseEntity<ErrorResponse> handleSmsDelivery(SmsDeliveryException ex) {
+        log.warn("SMS delivery failed: {}", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY)
+                .body(new ErrorResponse(502, "SMS_DELIVERY_FAILED", "SMS delivery failed.", MDC.get("requestId")));
+    }
+
+    // ─── Infrastructure ───────────────────────────────────────────────────────
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ErrorResponse> handleDataIntegrity(DataIntegrityViolationException ex) {
+        log.warn("Data integrity violation: {}", ex.getMostSpecificCause().getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(409, "CONFLICT", "A duplicate record was detected.", MDC.get("requestId")));
+    }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<Void> handleNoResourceFound(NoResourceFoundException ex) {
+        return ResponseEntity.notFound().build();
+    }
+
+    // ─── Validation ───────────────────────────────────────────────────────────
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex) {
         String message = ex.getBindingResult().getFieldErrors().stream()
@@ -90,17 +132,10 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(400, "INVALID_REQUEST", message, MDC.get("requestId")));
     }
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<ErrorResponse> handleDataIntegrity(DataIntegrityViolationException ex) {
-        log.warn("Data integrity violation: {}", ex.getMostSpecificCause().getMessage());
-        return ResponseEntity.status(HttpStatus.CONFLICT)
-                .body(new ErrorResponse(409, "ALREADY_SUBSCRIBED", "A duplicate record was detected.", MDC.get("requestId")));
-    }
+    // ─── Rate limiting (stub — implemented in Story 10) ──────────────────────
+    // TODO: @ExceptionHandler(RateLimitedException.class) → 429, RATE_LIMITED
 
-    @ExceptionHandler(NoResourceFoundException.class)
-    public ResponseEntity<Void> handleNoResourceFound(NoResourceFoundException ex) {
-        return ResponseEntity.notFound().build();
-    }
+    // ─── Catch-all ────────────────────────────────────────────────────────────
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleUnexpected(Exception ex) {

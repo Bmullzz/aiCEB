@@ -3,7 +3,10 @@
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/admin/AuthControllerTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/notification/NotificationSchedulerTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/notification/NotificationServiceTest.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/CorsTest.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/GlobalExceptionHandlerTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/JwtServiceTest.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/MdcFilterTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/MockSmsServiceTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/SecurityConfigTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/SmsServiceProfileTest.java

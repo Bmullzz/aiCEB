@@ -15,8 +15,6 @@ React frontend is a single-page application that communicates with the Spring Bo
 Spring Boot backend is the application core and is responsible for all business logic, data persistence, scheduled notifications, and external service integration. It is organized into three functional slices that map to three controllers: event management (EventController, read-heavy, powers the displays), subscriptions (SubscriptionController, handles kiosk signups and opt-outs), and administration (AdminController, protected by JWT, handles CRUD operations and manual broadcasts). Each controller delegates entirely to a corresponding service layer — EventService, SubscriptionService, and a background NotificationScheduler — which in turn talk to JPA repositories. No controller accesses a repository directly. The public endpoints (/api/events/** and /api/subscriptions/**) require no authentication. All /api/admin/** routes are protected by Spring Security with JWT and require the ADMIN role.
 External services are three dependencies the backend integrates with. PostgreSQL is the primary datastore, accessed via Spring Data JPA. Spring Security with JWT handles admin authentication. Twilio (or AWS SNS as an alternative) handles SMS delivery and is wrapped behind a SmsService interface so the provider can be swapped or stubbed in tests. The NotificationScheduler uses Spring's @Scheduled to query for upcoming events at regular intervals, find their active subscribers, fire reminder SMS messages at the configured offsets (e.g. 60 and 15 minutes before start), and write each delivery attempt to the notification_log table.
 
-## Data model
-Here's the data model section, ready to paste directly into `CLAUDE.md`:
 
 ---
 
