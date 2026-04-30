@@ -5,6 +5,11 @@
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/event/EventRepository.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/event/EventStatus.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/event/package-info.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/notification/DeliveryStatus.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/notification/NotificationLog.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/notification/NotificationLogRepository.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/notification/NotificationScheduler.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/notification/NotificationService.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/notification/package-info.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/AlreadyOptedOutException.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/main/java/com/yourorg/eventdashboard/shared/AlreadySubscribedException.java
