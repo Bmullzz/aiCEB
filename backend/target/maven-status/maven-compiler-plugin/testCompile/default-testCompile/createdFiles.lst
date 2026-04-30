@@ -1,5 +1,8 @@
+com/yourorg/eventdashboard/subscription/SubscriptionServiceTest.class
 com/yourorg/eventdashboard/shared/SmsServiceProfileTest.class
+com/yourorg/eventdashboard/EventDashboardApplicationTests.class
+com/yourorg/eventdashboard/subscription/SubscriptionControllerTest.class
+com/yourorg/eventdashboard/subscription/PhoneNumberValidatorTest.class
 com/yourorg/eventdashboard/shared/MockSmsServiceTest.class
 com/yourorg/eventdashboard/FlywayMigrationTest.class
-com/yourorg/eventdashboard/EventDashboardApplicationTests.class
 com/yourorg/eventdashboard/shared/TwilioSmsServiceTest.class

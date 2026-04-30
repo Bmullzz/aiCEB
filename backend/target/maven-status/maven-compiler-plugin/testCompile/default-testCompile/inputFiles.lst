@@ -3,3 +3,6 @@
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/MockSmsServiceTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/SmsServiceProfileTest.java
 /Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/shared/TwilioSmsServiceTest.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/subscription/PhoneNumberValidatorTest.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/subscription/SubscriptionControllerTest.java
+/Users/bmullin/projects/aiProjects/aiCEB/backend/src/test/java/com/yourorg/eventdashboard/subscription/SubscriptionServiceTest.java

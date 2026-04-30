@@ -9,7 +9,7 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@ActiveProfiles("test")
+@ActiveProfiles({"test", "mock"})
 class FlywayMigrationTest {
 
     @Autowired
