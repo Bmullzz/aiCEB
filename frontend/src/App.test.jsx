@@ -10,6 +10,7 @@ import * as api from './api/api'
 beforeEach(() => {
   api.getEvents.mockResolvedValue({ content: [], totalPages: 0, totalElements: 0 })
   api.getCategories.mockResolvedValue([])
+  api.getUpcomingEvents.mockResolvedValue([])
 })
 
 function renderApp(initialEntries = ['/']) {
