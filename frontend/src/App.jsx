@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import AuthProvider from './contexts/AuthContext'
 import AdminRoute from './components/admin/AdminRoute'
+import EventDetailScreen from './components/kiosk/EventDetailScreen'
 import KioskDisplay from './pages/KioskDisplay'
 import TvDisplay from './pages/TvDisplay'
 import UnsubscribePage from './pages/UnsubscribePage'
@@ -14,6 +15,7 @@ export default function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<KioskDisplay />} />
+        <Route path="/events/:id" element={<EventDetailScreen />} />
         <Route path="/tv" element={<TvDisplay />} />
         <Route path="/unsubscribe" element={<UnsubscribePage />} />
         <Route path="/admin/login" element={<AdminLogin />} />

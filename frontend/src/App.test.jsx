@@ -11,6 +11,7 @@ beforeEach(() => {
   api.getEvents.mockResolvedValue({ content: [], totalPages: 0, totalElements: 0 })
   api.getCategories.mockResolvedValue([])
   api.getUpcomingEvents.mockResolvedValue([])
+  api.getEvent.mockResolvedValue({ id: '1', title: 'Test', startTime: '2026-05-01T14:00:00Z', endTime: '2026-05-01T15:00:00Z', location: 'Room A', status: 'UPCOMING', subscriberCount: 0 })
 })
 
 function renderApp(initialEntries = ['/']) {
