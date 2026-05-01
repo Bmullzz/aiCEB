@@ -1,0 +1,63 @@
+.kiosk-display {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #f9fafb;
+}
+
+.kiosk-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 0;
+  overflow-x: auto;
+}
+
+.filter-btn {
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 2px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.filter-btn.active {
+  background: #5DCAA5;
+  border-color: #5DCAA5;
+  color: #fff;
+}
+
+.kiosk-event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  margin-top: 12px;
+}
+
+.kiosk-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  margin-top: auto;
+}
+
+.kiosk-pagination button {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+}
+
+.kiosk-pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

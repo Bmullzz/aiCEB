@@ -1,6 +1,16 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { beforeEach, vi } from 'vitest'
 import App from './App'
+
+vi.mock('./api/api')
+
+import * as api from './api/api'
+
+beforeEach(() => {
+  api.getEvents.mockResolvedValue({ content: [], totalPages: 0, totalElements: 0 })
+  api.getCategories.mockResolvedValue([])
+})
 
 function renderApp(initialEntries = ['/']) {
   return render(
@@ -14,9 +24,9 @@ test('app renders without crashing', () => {
   renderApp()
 })
 
-test('/ renders KioskDisplay placeholder', () => {
+test('/ renders KioskDisplay placeholder', async () => {
   renderApp(['/'])
-  expect(screen.getByTestId('kiosk-display')).toBeInTheDocument()
+  await waitFor(() => expect(screen.getByTestId('kiosk-display')).toBeInTheDocument())
 })
 
 test('/tv renders TvDisplay placeholder', () => {
