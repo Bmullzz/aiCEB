@@ -1,0 +1,125 @@
+.sms-modal-form,
+.sms-modal-loading,
+.sms-modal-success,
+.sms-modal-info,
+.sms-modal-error {
+  padding: 1.5rem;
+  min-width: 300px;
+  max-width: 440px;
+}
+
+.sms-modal-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.sms-modal-event-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.sms-modal-schedule {
+  color: #6B7280;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.sms-modal-input-group {
+  margin-bottom: 1rem;
+}
+
+.sms-modal-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 8px;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.sms-modal-input:focus {
+  border-color: #5DCAA5;
+  outline: none;
+}
+
+.sms-modal-input.sms-modal-input-error {
+  border-color: #EF4444;
+}
+
+.sms-modal-inline-error {
+  color: #EF4444;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.sms-modal-submit {
+  width: 100%;
+  min-height: 44px;
+}
+
+.sms-modal-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sms-modal-success-icon {
+  font-size: 3rem;
+  color: #5DCAA5;
+  text-align: center;
+}
+
+.sms-modal-countdown {
+  font-size: 0.8rem;
+  color: #9CA3AF;
+  text-align: center;
+}
+
+.sms-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-primary {
+  background: #5DCAA5;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0 1.5rem;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #F3F4F6;
+  color: #111827;
+  border-radius: 8px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0 1.5rem;
+}
+
+.btn-text {
+  background: transparent;
+  color: #6B7280;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  min-height: 44px;
+  font-size: 1rem;
+}

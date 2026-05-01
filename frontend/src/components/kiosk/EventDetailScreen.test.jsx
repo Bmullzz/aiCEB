@@ -102,7 +102,7 @@ test('opens SmsSignupModal when Get SMS Alerts is clicked', async () => {
   renderDetail()
   await waitFor(() => screen.getByRole('button', { name: /Get SMS Alerts/i }))
   await userEvent.click(screen.getByRole('button', { name: /Get SMS Alerts/i }))
-  expect(screen.getByTestId('sms-signup-modal')).toBeInTheDocument()
+  expect(screen.getByTestId('sms-modal-form')).toBeInTheDocument()
 })
 
 describe('subscriber count local update', () => {

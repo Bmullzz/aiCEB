@@ -33,9 +33,9 @@ export default function EventDetailScreen() {
     navigate(-1)
   }
 
-  function handleSignupSuccess() {
-    setLocalSubscriberCount((c) => c + 1)
+  function handleModalClose(didSignUp) {
     setShowSignupModal(false)
+    if (didSignUp) setLocalSubscriberCount((c) => c + 1)
   }
 
   const isCancelled = event?.status === 'CANCELLED'
@@ -95,9 +95,8 @@ export default function EventDetailScreen() {
 
       <SmsSignupModal
         isOpen={showSignupModal}
-        onClose={() => setShowSignupModal(false)}
+        onClose={handleModalClose}
         event={event}
-        onSuccess={handleSignupSuccess}
       />
     </div>
   )
